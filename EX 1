@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char str[100];
+    int i;
+
+    printf("Enter code:\n");
+    fgets(str, 100, stdin);
+
+    for (i = 0; str[i] != '\0'; i++) {
+
+        if (str[i] == ' ' || str[i] == '\n' || str[i] == '\t')
+            continue;
+
+        // stop at single-line comment
+        if (str[i]=='/' && str[i+1]=='/')
+            break;
+
+        // identifier
+        if (isalpha(str[i])) {
+            printf("Id: %c\n", str[i]);
+        }
+        // constant
+        else if (isdigit(str[i])) {
+            printf("Const: %c\n", str[i]);
+        }
+        // operator
+        else if (str[i]=='+' || str[i]=='-' || str[i]=='*' || str[i]=='/' || str[i]=='=') {
+            printf("Op: %c\n", str[i]);
+        }
+    }
+    return 0;
+}
