@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main() {
+    // Since A and B produce epsilon
+    printf("FIRST(A) = { ε }\n");
+    printf("FIRST(B) = { ε }\n");
+
+    // For S → AaAb / BbBa
+    // A -> ε so first symbol becomes 'a'
+    // B -> ε so first symbol becomes 'b'
+    printf("FIRST(S) = { a, b }\n");
+
+    return 0;
+}
